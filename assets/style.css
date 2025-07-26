@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 62.5%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #4a00e0, #8e2de2);
+    overflow: hidden;
+    padding: 2rem;
+}
+
+body.light {
+    background: linear-gradient(to right, #f0f0f0, #dfe9f3);
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    padding: 3rem;
+    max-width: 45rem;
+    width: 100%;
+    animation: fadeIn 1s ease;
+    color: #fff;
+}
+
+body.light .container {
+    background: rgba(0, 0, 0, 0.05);
+    color: #111;
+}
+
+h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.time {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.time div {
+    background: #fff;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+    animation: pop 0.5s ease-in-out;
+}
+
+.time .digit {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.time .txt {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #333;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    background-color: #111;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn.start {
+    background: #008000;
+}
+
+.btn.stop {
+    background: #c70039;
+}
+
+.btn.reset {
+    background: #005f73;
+}
+
+.btn.lap {
+    background: #ffa500;
+}
+
+.btn.lap:hover {
+    background: #cc8400;
+}
+
+/* Log section */
+.log-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+    animation: fadeIn 1s ease-in-out;
+}
+
+body.light .log-section {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.log-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.log-list {
+    list-style-type: square;
+    font-size: 1.1rem;
+    padding-left: 1.5rem;
+    max-height: 120px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.log-list li {
+    margin-bottom: 0.5rem;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Action input */
+.action-input {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.action-input input {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.action-input button {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    background: #0066cc;
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.action-input button:hover {
+    background: #004c99;
+}
+
+body.light .action-input button {
+    background: #222;
+}
+
+body.light .action-input button:hover {
+    background: #000;
+}
+
+/* Toggle Theme Switch */
+.theme-toggle {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mode-label {
+    color: white;
+    font-size: 1.1rem;
+}
+
+body.light .mode-label {
+    color: #111;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 25px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3.5px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #111;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 460px) {
+    html {
+        font-size: 55%;
+    }
+
+    .btns {
+        flex-direction: column;
+    }
+
+    .action-input {
+        flex-direction: column;
+    }
+
+    .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+    }
+}

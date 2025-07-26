@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stopwatch</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="shortcut icon" href="./assets/fav.ico" type="image/x-icon" />
+</head>
+<body class="dark">
+
+  <div class="theme-toggle">
+    <label class="switch">
+      <input type="checkbox" id="toggleTheme" />
+      <span class="slider round"></span>
+    </label>
+    <span class="mode-label">Dark Mode</span>
+  </div>
+
+  <div class="container">
+    <h2>⏱️ Stopwatch</h2>
+
+    <div class="time">
+      <div><span class="digit" id="hr">00</span><span class="txt">Hr</span></div>
+      <div><span class="digit" id="min">00</span><span class="txt">Min</span></div>
+      <div><span class="digit" id="sec">00</span><span class="txt">Sec</span></div>
+      <div><span class="digit" id="count">00</span><span class="txt">Ms</span></div>
+    </div>
+
+    <div class="btns">
+      <button class="btn start" onclick="start()">Start</button>
+      <button class="btn stop" onclick="stop()">Stop</button>
+      <button class="btn reset" onclick="reset()">Reset</button>
+      <button class="btn lap" onclick="lap()">Lap</button>
+    </div>
+
+    <div class="log-section">
+      <h3>📝 Enter Your Action</h3>
+      <div class="action-input">
+        <input type="text" id="actionInput" placeholder="Describe your action..." />
+        <button onclick="addUserAction()">Add Action</button>
+      </div>
+
+      <h3>📘 Action Log</h3>
+      <ul id="actionLog" class="log-list"></ul>
+
+      <h3>🏁 Time Lapses</h3>
+      <ul id="lapLog" class="log-list"></ul>
+    </div>
+  </div>
+
+  <script src="./assets/script.js"></script>
+</body>
+</html>
